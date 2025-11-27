@@ -5,9 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Target
-  - Arrow
   - Terrain
-  - Bow
+  - GasTank
+  - Concrete
+  - Metal
+  - ExplosiveBarrel
+  - Bullet
   layers:
   - Default
   - TransparentFX
