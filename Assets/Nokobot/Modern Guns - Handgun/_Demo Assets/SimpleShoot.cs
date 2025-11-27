@@ -44,7 +44,9 @@ public class SimpleShoot : MonoBehaviour
 //This function creates the bullet behavior
 void Shoot()
     {
-        source.PlayOneShot(fireSound);
+        if (source && fireSound)
+            source.PlayOneShot(fireSound);
+
         if (muzzleFlashPrefab)
         {
             //Create the muzzle flash
@@ -60,8 +62,9 @@ void Shoot()
         { return; }
 
         // Create a bullet and add force on it in direction of the barrel
-        Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-
+        GameObject bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        Destroy(bullet, 3f);
     }
 
     //This function creates a casing at the ejection slot
