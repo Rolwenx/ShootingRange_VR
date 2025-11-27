@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8675a72d336f04dbd9be51e088bb9d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionEffect: {fileID: 4377928383085285001, guid: 8d89780e4aa2f4205aab94fc96bbab8a, type: 3}
+  destructionEffect: {fileID: 4336645043091501534, guid: dadceb659c83a41889f315fe4a5aa342, type: 3}
 --- !u!1001 &5622828926086338807
 PrefabInstance:
   m_ObjectHideFlags: 0
