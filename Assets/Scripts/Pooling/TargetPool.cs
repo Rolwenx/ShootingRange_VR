@@ -67,7 +67,7 @@ public class TargetPool : MonoBehaviour
         Rigidbody rb = target.GetComponent<Rigidbody>();
         if (rb)
         {
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
 

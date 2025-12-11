@@ -4,10 +4,17 @@ public class TargetDestruction : MonoBehaviour
 {
     public GameObject destructionEffect;
 
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip targetImpact;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Bullet"))
             return;
+        
+        if (source && targetImpact)
+            source.PlayOneShot(targetImpact);
 
        if (VRFXLoader.instance.impactPrefab != null)
         {

@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GUID: 171b0b978594d4fc793150a479275eeb
   m_SerializeEntries:
   - m_GUID: 5dc35a14abace4a5099694301bb911e3
-    m_Address: Assets/Prefab/PCVR/TargetImpact_Effect_PCVR.prefab
+    m_Address: TargetImpact_Effect_PCVR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b250fa6c09f2c42ecac9ab4bb4fdaa55
-    m_Address: Assets/Prefab/PCVR/MuzzleFlash_PCVR.prefab
+    m_Address: MuzzleFlash_PCVR
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

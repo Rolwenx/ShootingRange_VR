@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GUID: 14f02e458bf3f42ebb95eaac1955ebfe
   m_SerializeEntries:
   - m_GUID: aa4d30d141cd34e388b47042f648e787
-    m_Address: Assets/Prefab/Meta/MuzzleFlash_Meta.prefab
+    m_Address: MuzzleFlash_Meta
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e8305341160964e5ebc61b32dfc8338e
-    m_Address: Assets/Prefab/Meta/TargetImpact_Effect_Meta.prefab
+    m_Address: TargetImpact_Effect_Meta
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
