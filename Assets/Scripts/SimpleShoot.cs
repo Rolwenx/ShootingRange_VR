@@ -24,6 +24,8 @@ public class SimpleShoot : MonoBehaviour
     public AudioSource source;
     public AudioClip fireSound;
 
+    public ProjectivePool bulletPool;
+
 
     void Start()
     {
@@ -57,14 +59,17 @@ void Shoot()
             Destroy(tempFlash, destroyTimer);
         }
 
-        //cancels if there's no bullet prefeb
-        if (!bulletPrefab)
-        { return; }
-
-        // Create a bullet and add force on it in direction of the barrel
-        GameObject bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-        Destroy(bullet, 10f);
+        GameObject bullet = bulletPool.GetBullet();
+        bullet.transform.position = barrelLocation.position;
+        bullet.transform.rotation = barrelLocation.rotation;
+        bullet.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
+        bullet.SetActive(true);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        if(rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.AddForce(barrelLocation.forward * shotPower, ForceMode.Impulse);
+        }
     }
 
     //This function creates a casing at the ejection slot
