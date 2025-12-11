@@ -49,23 +49,34 @@ void Shoot()
 
         if (muzzleFlashPrefab)
         {
-            //Create the muzzle flash
-            GameObject tempFlash;
-            tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-
-            //Destroy the muzzle flash effect
+            GameObject tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
             Destroy(tempFlash, destroyTimer);
         }
 
-        //cancels if there's no bullet prefeb
-        if (!bulletPrefab)
-        { return; }
+        if (!ProjectilePool.instance)
+        {
+            Debug.LogError("⚠ ProjectilePool is missing in the scene !");
+            return;
+        }
 
-        // Create a bullet and add force on it in direction of the barrel
-        GameObject bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-        Destroy(bullet, 10f);
+        GameObject bullet = ProjectilePool.instance.GetBullet();
+
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+        bullet.transform.position = barrelLocation.position;
+        bullet.transform.rotation = barrelLocation.rotation;
+
+        // Reset physics BEFORE activating
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Now activate
+        bullet.SetActive(true);
+
+        // Apply force
+        rb.AddForce(barrelLocation.forward * shotPower, ForceMode.Impulse);
     }
+
 
     //This function creates a casing at the ejection slot
     void CasingRelease()
@@ -81,7 +92,6 @@ void Shoot()
         tempCasing.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(ejectPower * 0.7f, ejectPower), (casingExitLocation.position - casingExitLocation.right * 0.3f - casingExitLocation.up * 0.6f), 1f);
         //Add torque to make casing spin in random direction
         tempCasing.GetComponent<Rigidbody>().AddTorque(new Vector3(0, Random.Range(100f, 500f), Random.Range(100f, 1000f)), ForceMode.Impulse);
-
         //Destroy casing after X seconds
         Destroy(tempCasing, destroyTimer);
     }
