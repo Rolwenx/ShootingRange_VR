@@ -43,38 +43,29 @@ public class SimpleShoot : MonoBehaviour
 
 //This function creates the bullet behavior
 void Shoot()
-{
-    if (source && fireSound)
-        source.PlayOneShot(fireSound);
-
-    if (muzzleFlashPrefab)
     {
-        GameObject tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-        Destroy(tempFlash, destroyTimer);
+        if (source && fireSound)
+            source.PlayOneShot(fireSound);
+
+        if (muzzleFlashPrefab)
+        {
+            //Create the muzzle flash
+            GameObject tempFlash;
+            tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
+
+            //Destroy the muzzle flash effect
+            Destroy(tempFlash, destroyTimer);
+        }
+
+        //cancels if there's no bullet prefeb
+        if (!bulletPrefab)
+        { return; }
+
+        // Create a bullet and add force on it in direction of the barrel
+        GameObject bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        Destroy(bullet, 10f);
     }
-
-    // Get pooled bullet
-    GameObject bullet = ProjectilePool.instance.GetBullet();
-
-    Rigidbody rb = bullet.GetComponent<Rigidbody>();
-
-    bullet.SetActive(true);
-
-    // Shoot
-    rb.AddForce(barrelLocation.forward * shotPower);
-
-    // Auto return to pool after 10s
-    StartCoroutine(ReturnToPoolAfterDelay(bullet, 10f));
-}
-
-IEnumerator ReturnToPoolAfterDelay(GameObject bullet, float time)
-{
-    yield return new WaitForSeconds(time);
-    
-    if (bullet.activeInHierarchy)
-        ProjectilePool.instance.ReturnBullet(bullet);
-}
-
 
     //This function creates a casing at the ejection slot
     void CasingRelease()
