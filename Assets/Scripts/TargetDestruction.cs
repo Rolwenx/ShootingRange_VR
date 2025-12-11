@@ -9,8 +9,17 @@ public class TargetDestruction : MonoBehaviour
         if (!other.CompareTag("Bullet"))
             return;
 
-        if (destructionEffect != null)
-            Instantiate(destructionEffect, transform.position, Quaternion.identity);
+       if (VRFXLoader.instance.impactPrefab != null)
+        {
+            GameObject fx = Instantiate(
+                VRFXLoader.instance.impactPrefab, 
+                transform.position, 
+                Quaternion.identity
+            );
+
+            Destroy(fx, 2f); 
+        }
+
 
         TargetManager.instance.TargetDestroyed();
 

@@ -18,34 +18,31 @@ public class ProjectilePool : MonoBehaviour
 
     void Start()
     {
-        // Create initial pool
+        // we create an initial pool of n bullets
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(bulletPrefab);
-            obj.SetActive(false);
-            pool.Add(obj);
+            GameObject _tempBullet = Instantiate(bulletPrefab);
+            _tempBullet.SetActive(false);
+            pool.Add(_tempBullet);
         }
     }
 
     public GameObject GetBullet()
     {
-        // Look for an inactive bullet
+        // we search a bullet that is inactive, to make it active
         foreach (GameObject bullet in pool)
         {
             if (!bullet.activeInHierarchy)
             {
-                Debug.Log("from pool");
-                Debug.Log(bullet.activeInHierarchy);
+                // when we find one, we set it active
                 bullet.SetActive(true);
-                Debug.Log(bullet.activeInHierarchy);
                 return bullet;
             }
         }
 
-        // Optional: expand pool if empty
+        // if for whatever reason, the pool is all active, we add a new bullet to it
         GameObject newBullet = Instantiate(bulletPrefab);
         pool.Add(newBullet);
-        Debug.Log("added");
         return newBullet;
     }
 }

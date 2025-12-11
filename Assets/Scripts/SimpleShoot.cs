@@ -46,11 +46,16 @@ void Shoot()
     if (source && fireSound)
         source.PlayOneShot(fireSound);
 
-    if (muzzleFlashPrefab)
+    if (VRFXLoader.instance.muzzleFlashPrefab != null)
     {
-        GameObject tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-        Destroy(tempFlash, destroyTimer);
+        GameObject flash = Instantiate(
+            VRFXLoader.instance.muzzleFlashPrefab,
+            barrelLocation.position,
+            barrelLocation.rotation
+        );
+        Destroy(flash, 2f);
     }
+
 
     if (!ProjectilePool.instance)
     {
