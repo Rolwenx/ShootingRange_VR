@@ -1401,6 +1401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117283546}
   - component: {fileID: 117283545}
+  - component: {fileID: 117283547}
   m_Layer: 0
   m_Name: Pool
   m_TagString: Untagged
@@ -1420,8 +1421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605180f1933e943bdaa133fad44ec5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 100000, guid: 1319cfeb42068a446bc5d43ef1562670, type: 3}
-  initialPoolSize: 20
+  bulletPrefab: {fileID: 6804990658058999119, guid: 65c9f6563c561ee4e8905d1e6a32548b, type: 3}
+  poolSize: 20
+  pool: []
 --- !u!4 &117283546
 Transform:
   m_ObjectHideFlags: 0
@@ -1437,6 +1439,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &117283547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117283544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d87ba06b46443daa49b162565a73ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6804990658058999119, guid: 65c9f6563c561ee4e8905d1e6a32548b, type: 3}
+  poolSize: 20
 --- !u!1001 &123529854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6452,6 +6468,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: aaef5231b452ca64a8642aeff708e1cf, type: 3}
     - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: bulletPool
+      value: 
+      objectReference: {fileID: 117283545}
+    - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: muzzleFlashPrefab
       value: 
       objectReference: {fileID: 1782395880954752, guid: 3dd9cf2e209c504448f1c4c6835675cf, type: 3}
@@ -6510,6 +6530,10 @@ PrefabInstance:
     - target: {fileID: 8572362472259986371, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: m_Name
       value: M1911 Handgun_Black (Shooting)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574493024766216783, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2062
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

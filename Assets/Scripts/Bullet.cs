@@ -1,44 +1,33 @@
 using UnityEngine;
+using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
-    public float lifetime = 5f;
+    private Rigidbody rb;
 
-    // Pool reference assigned by the ProjectivePool
-    private ProjectivePool bulletPool;
-
-    // Called by the pool when the bullet is created
-    public void Initialize(ProjectivePool pool)
+    void Awake()
     {
-        bulletPool = pool;
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
-        // Start lifetime timer
-        Invoke(nameof(ReturnToPool), lifetime);
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        // Auto-disable after 10 sec
+        Invoke(nameof(Disable), 10f);
     }
 
-    private void OnDisable()
+    IEnumerator Disable()
     {
-        // Cancel the timer when the bullet is disabled
-        CancelInvoke();
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
     }
-
-    // Removed OnCollisionEnter → you handle collision somewhere else
-
-    private void ReturnToPool()
+    
+    private void OnTriggerEnter(Collider collision)
     {
-        if (!gameObject.activeSelf) return;
-
-        if (bulletPool != null)
-        {
-            bulletPool.ReturnBullet(gameObject);
-        }
-        else
-        {
-            // Safety fallback
-            Destroy(gameObject);
-        }
+        // Optional: disable on impact
+        StartCoroutine(nameof(Disable));
     }
 }

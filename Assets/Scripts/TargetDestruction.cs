@@ -8,9 +8,9 @@ public class TargetDestruction : MonoBehaviour
 
    public GameObject destructionEffect;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if (collider.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
         }
@@ -21,13 +21,9 @@ public class TargetDestruction : MonoBehaviour
             Instantiate(destructionEffect, transform.position, Quaternion.identity);
         }
 
-            // Inform target manager
-            TargetManager.instance.TargetDestroyed();
+        // Inform target manager
+        TargetManager.instance.TargetDestroyed();
 
-            // destroy target
-            Destroy(gameObject);
-
-            // Optionnel: détruire la balle
     }
     
 }

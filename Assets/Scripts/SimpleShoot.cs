@@ -6,7 +6,6 @@ using UnityEngine;
 public class SimpleShoot : MonoBehaviour
 {
     [Header("Prefab Refrences")]
-    public GameObject bulletPrefab;
     public GameObject casingPrefab;
     public GameObject muzzleFlashPrefab;
 
@@ -23,8 +22,6 @@ public class SimpleShoot : MonoBehaviour
     [Header("Audio")]
     public AudioSource source;
     public AudioClip fireSound;
-
-    public ProjectivePool bulletPool;
 
 
     void Start()
@@ -45,32 +42,34 @@ public class SimpleShoot : MonoBehaviour
 
 //This function creates the bullet behavior
 void Shoot()
+{
+    if (source && fireSound)
+        source.PlayOneShot(fireSound);
+
+    if (muzzleFlashPrefab)
     {
-        if (source && fireSound)
-            source.PlayOneShot(fireSound);
-
-        if (muzzleFlashPrefab)
-        {
-            //Create the muzzle flash
-            GameObject tempFlash;
-            tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-
-            //Destroy the muzzle flash effect
-            Destroy(tempFlash, destroyTimer);
-        }
-
-        GameObject bullet = bulletPool.GetBullet();
-        bullet.transform.position = barrelLocation.position;
-        bullet.transform.rotation = barrelLocation.rotation;
-        bullet.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-        bullet.SetActive(true);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        if(rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.AddForce(barrelLocation.forward * shotPower, ForceMode.Impulse);
-        }
+        GameObject tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
+        Destroy(tempFlash, destroyTimer);
     }
+
+    if (!ProjectilePool.instance)
+    {
+        Debug.LogError("⚠ ProjectilePool is missing in the scene !");
+        return;
+    }
+
+    // Get projectile from pool
+    GameObject bullet = ProjectilePool.instance.GetBullet();
+
+    bullet.transform.position = barrelLocation.position;
+    bullet.transform.rotation = barrelLocation.rotation;
+
+    
+
+    bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+}
+
+
 
     //This function creates a casing at the ejection slot
     void CasingRelease()
