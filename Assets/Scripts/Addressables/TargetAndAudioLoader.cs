@@ -41,8 +41,9 @@ public class TargetAndAudioLoader : MonoBehaviour
         Addressables.LoadAssetAsync<GameObject>(targetKey).Completed += (op) =>
         {
             targetPrefab = op.Result;
-            Debug.Log("Loaded target prefab: " + targetPrefab.name);
+            isReady = true; // on signale que la cible est prête
         };
+
 
         // ---- Load Shoot Sound ----
         Addressables.LoadAssetAsync<AudioClip>(audioShootKey).Completed += (op) =>
@@ -56,6 +57,5 @@ public class TargetAndAudioLoader : MonoBehaviour
             impactSFX = op.Result;
         };
 
-        isReady = true;
     }
 }

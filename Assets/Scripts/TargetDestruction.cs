@@ -18,20 +18,26 @@ public class TargetDestruction : MonoBehaviour
         transform.position);
 
 
-       if (VRFXLoader.instance.impactPrefab != null)
-        {
-            GameObject fx = Instantiate(
-                VRFXLoader.instance.impactPrefab, 
-                transform.position, 
-                Quaternion.identity
-            );
 
-            Destroy(fx, 2f); 
+        GameObject fx = Instantiate(
+        VRFXLoader.instance.impactPrefab, 
+        transform.position, 
+        Quaternion.identity
+        );
+
+        ParticleSystem ps = fx.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Play();
         }
+
+        Destroy(fx, 2f);
+
+
 
 
         TargetManager.instance.TargetDestroyed();
 
-        gameObject.SetActive(false);
+        transform.root.gameObject.SetActive(false);
     }
 }

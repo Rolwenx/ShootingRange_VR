@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,17 +20,29 @@ public class TargetPool : MonoBehaviour
 
     void Start()
     {
-        // initial target pool
-        for (int i = 0; i < poolSize; i++)
+        StartCoroutine(WaitForTargetPrefab());
+    }
+
+    private IEnumerator WaitForTargetPrefab()
+    {
+        // attendre que TargetAndAudioLoader ait chargé la target
+        while (!TargetAndAudioLoader.instance.isReady ||
+            TargetAndAudioLoader.instance.targetPrefab == null)
         {
-            GameObject _tempTarget = Instantiate(TargetAndAudioLoader.instance.targetPrefab);
-            _tempTarget.SetActive(false);
-            pool.Add(_tempTarget);
+            yield return null; // attendre un frame
         }
 
-        // on place les premières cibles dans la scène
+        // maintenant on peut créer le pool
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject temp = Instantiate(TargetAndAudioLoader.instance.targetPrefab);
+            temp.SetActive(false);
+            pool.Add(temp);
+        }
+
         SpawnAllTargets();
     }
+
 
     // on retourne une cible inactive du pool, et s'il y en a pas, on en crée une nouvelle
     public GameObject GetTarget()

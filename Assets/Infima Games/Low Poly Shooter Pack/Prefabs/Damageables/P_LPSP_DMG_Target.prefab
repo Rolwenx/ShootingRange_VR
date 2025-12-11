@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructionEffect: {fileID: 0}
   source: {fileID: 815202762476565967}
-  targetImpact: {fileID: 8300000, guid: afe5e031c5eca6c43b0427ff99d012b3, type: 3}
+  targetImpact: {fileID: 0}
 --- !u!82 &815202762476565967
 AudioSource:
   m_ObjectHideFlags: 0

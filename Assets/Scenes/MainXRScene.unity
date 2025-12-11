@@ -4882,7 +4882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76f28e0f83d740c8a363f73be171692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPrefab: {fileID: 140506, guid: 84e2da24fceb32c45a3059b4c1d82538, type: 3}
+  targetPrefab: {fileID: 0}
   poolSize: 10
   spawnPoints:
   - {fileID: 1603867918}
