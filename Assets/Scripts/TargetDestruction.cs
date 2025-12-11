@@ -12,9 +12,11 @@ public class TargetDestruction : MonoBehaviour
     {
         if (!other.CompareTag("Bullet"))
             return;
-        
-        if (source && targetImpact)
-            source.PlayOneShot(targetImpact);
+            
+        AudioSource.PlayClipAtPoint(
+        TargetAndAudioLoader.instance.impactSFX,
+        transform.position);
+
 
        if (VRFXLoader.instance.impactPrefab != null)
         {

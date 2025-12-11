@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Targets_Quest
+  m_EditorClassIdentifier: 
+  m_GroupName: Targets_Quest
+  m_GUID: 5269ab2da5bb943a6bcacf74d01b7fd5
+  m_SerializeEntries:
+  - m_GUID: 59811db3f8de844c9b41d410ddc9d00e
+    m_Address: Target_Quest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8608be8742b9b443dad79ce230343eb2
+    m_Address: Shoot_Quest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce90eaa2e52f94b94bd3035dc0973e88
+    m_Address: Impact_Quest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a29a6ea6bed3d4c938c223bae1e23551, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

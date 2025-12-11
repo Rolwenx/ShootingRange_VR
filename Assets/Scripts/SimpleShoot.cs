@@ -43,8 +43,9 @@ public class SimpleShoot : MonoBehaviour
 //This function creates the bullet behavior
 void Shoot()
 {
-    if (source && fireSound)
-        source.PlayOneShot(fireSound);
+    if (TargetAndAudioLoader.instance.shootSFX != null)
+        source.PlayOneShot(TargetAndAudioLoader.instance.shootSFX);
+
 
     if (VRFXLoader.instance.muzzleFlashPrefab != null)
     {

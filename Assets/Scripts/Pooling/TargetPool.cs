@@ -22,7 +22,7 @@ public class TargetPool : MonoBehaviour
         // initial target pool
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject _tempTarget = Instantiate(targetPrefab);
+            GameObject _tempTarget = Instantiate(TargetAndAudioLoader.instance.targetPrefab);
             _tempTarget.SetActive(false);
             pool.Add(_tempTarget);
         }
