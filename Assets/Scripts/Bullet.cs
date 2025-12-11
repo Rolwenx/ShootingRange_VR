@@ -16,18 +16,19 @@ public class Bullet : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         // Auto-disable after 10 sec
-        Invoke(nameof(Disable), 10f);
+        CancelInvoke();
+        Invoke(nameof(Disable), 10f); 
     }
 
-    IEnumerator Disable()
+    private void Disable()
     {
-        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
-    
-    private void OnTriggerEnter(Collider collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        // Optional: disable on impact
-        StartCoroutine(nameof(Disable));
+        if (!other.CompareTag("Bullet"))
+            Disable(); // ALWAYS disable on impact
     }
+    
 }

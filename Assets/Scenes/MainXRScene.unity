@@ -1067,6 +1067,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1356406178605845762, guid: cdd74a287d6763748a0da1e717364366, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 311
+      objectReference: {fileID: 0}
     - target: {fileID: 1356406178605845763, guid: cdd74a287d6763748a0da1e717364366, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -1403,7 +1407,7 @@ GameObject:
   - component: {fileID: 117283545}
   - component: {fileID: 117283547}
   m_Layer: 0
-  m_Name: Pool
+  m_Name: Projectile Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4849,6 +4853,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7610868675822231441, guid: e85142d1c78f896448e46cbaebcccc58, type: 3}
   m_PrefabInstance: {fileID: 683529962}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685752448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685752450}
+  - component: {fileID: 685752449}
+  m_Layer: 0
+  m_Name: Target Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &685752449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685752448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76f28e0f83d740c8a363f73be171692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPrefab: {fileID: 140506, guid: 84e2da24fceb32c45a3059b4c1d82538, type: 3}
+  poolSize: 10
+  spawnPoints:
+  - {fileID: 1603867918}
+  - {fileID: 628931973}
+  - {fileID: 1103250034}
+  - {fileID: 965661108}
+--- !u!4 &685752450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685752448}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.8926663, y: 0.20168567, z: 27.849459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &705833805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7517,12 +7572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe201bf4b7144b93b81dcafa4f36b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPrefab: {fileID: 140506, guid: 84e2da24fceb32c45a3059b4c1d82538, type: 3}
-  spawnPoints:
-  - {fileID: 1603867918}
-  - {fileID: 628931973}
-  - {fileID: 1103250034}
-  - {fileID: 965661108}
 --- !u!4 &1179097879
 Transform:
   m_ObjectHideFlags: 0
@@ -12981,3 +13030,4 @@ SceneRoots:
   - {fileID: 1179097879}
   - {fileID: 960906599}
   - {fileID: 117283546}
+  - {fileID: 685752450}

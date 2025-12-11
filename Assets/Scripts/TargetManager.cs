@@ -3,37 +3,23 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour
 {
     public static TargetManager instance;
-    public GameObject targetPrefab;
-    public Transform[] spawnPoints;
 
-    private int destroyedCount = 0;
+    private int activeHits = 0;
 
-    void Awake()
+    private void Awake()
     {
         instance = this;
     }
 
-    void Start()
-    {
-        SpawnTargets();
-    }
-
     public void TargetDestroyed()
     {
-        destroyedCount++;
+        activeHits++;
 
-        if (destroyedCount >= spawnPoints.Length)
+        // when all targets have been hit:
+        if (activeHits >= TargetPool.instance.spawnPoints.Length)
         {
-            destroyedCount = 0;
-            SpawnTargets();
-        }
-    }
-
-    void SpawnTargets()
-    {
-        foreach (Transform point in spawnPoints)
-        {
-            Instantiate(targetPrefab, point.position, point.rotation);
+            activeHits = 0;
+            TargetPool.instance.SpawnAllTargets();
         }
     }
 }
