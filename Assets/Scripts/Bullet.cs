@@ -14,21 +14,15 @@ public class Bullet : MonoBehaviour
     {
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-
-        // Auto-disable after 10 sec
-        CancelInvoke();
-        Invoke(nameof(Disable), 10f); 
-    }
-
-    private void Disable()
-    {
-        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Bullet"))
-            Disable(); // ALWAYS disable on impact
+        // collisions may happen because of the weapon or other bullets so ignore them
+        if (other.CompareTag("Bullet") || other.CompareTag("Weapon"))
+            return;
+
+        // disable only on valid impact
+        gameObject.SetActive(false);
     }
-    
 }
