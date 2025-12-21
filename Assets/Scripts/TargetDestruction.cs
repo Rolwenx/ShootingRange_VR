@@ -35,8 +35,6 @@ public class TargetDestruction : MonoBehaviour
             ps.Play();
         }
 
-        Destroy(fx, 2f);
-
         transform.root.gameObject.SetActive(false);
     }
 }

@@ -54,7 +54,6 @@ void Shoot()
             barrelLocation.position,
             barrelLocation.rotation
         );
-        Destroy(flash, 2f);
     }
 
 
