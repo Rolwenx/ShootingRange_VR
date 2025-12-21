@@ -38,9 +38,6 @@ public class SimpleShoot : MonoBehaviour
         gunAnimator.SetTrigger("Fire");
     }
 
-
-
-//This function creates the bullet behavior
 void Shoot()
 {
     if (TargetAndAudioLoader.instance.shootSFX != null)

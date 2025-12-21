@@ -37,7 +37,7 @@ public class TargetAndAudioLoader : MonoBehaviour
         string audioImpactKey = "Impact_PCVR";
 #endif
 
-        // ---- Load Target Prefab ----
+        // loading target prefab
         Addressables.LoadAssetAsync<GameObject>(targetKey).Completed += (op) =>
         {
             targetPrefab = op.Result;
@@ -45,13 +45,13 @@ public class TargetAndAudioLoader : MonoBehaviour
         };
 
 
-        // ---- Load Shoot Sound ----
+        // loading shoot sound 
         Addressables.LoadAssetAsync<AudioClip>(audioShootKey).Completed += (op) =>
         {
             shootSFX = op.Result;
         };
 
-        // ---- Load Impact Sound ----
+        // loading impact sound 
         Addressables.LoadAssetAsync<AudioClip>(audioImpactKey).Completed += (op) =>
         {
             impactSFX = op.Result;
