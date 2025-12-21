@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Targets_PCVR
+  m_EditorClassIdentifier: 
+  m_GroupName: Targets_PCVR
+  m_GUID: 540617b5ad15b49bea449ac21deb3cde
+  m_SerializeEntries:
+  - m_GUID: 84e2da24fceb32c45a3059b4c1d82538
+    m_Address: Target_PCVR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaef5231b452ca64a8642aeff708e1cf
+    m_Address: Shoot_PCVR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afe5e031c5eca6c43b0427ff99d012b3
+    m_Address: Impact_PCVR
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a29a6ea6bed3d4c938c223bae1e23551, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

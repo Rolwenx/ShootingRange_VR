@@ -6,7 +6,6 @@ using UnityEngine;
 public class SimpleShoot : MonoBehaviour
 {
     [Header("Prefab Refrences")]
-    public GameObject bulletPrefab;
     public GameObject casingPrefab;
     public GameObject muzzleFlashPrefab;
 
@@ -39,33 +38,40 @@ public class SimpleShoot : MonoBehaviour
         gunAnimator.SetTrigger("Fire");
     }
 
-
-
-//This function creates the bullet behavior
 void Shoot()
+{
+    if (TargetAndAudioLoader.instance.shootSFX != null)
+        source.PlayOneShot(TargetAndAudioLoader.instance.shootSFX);
+
+
+    if (VRFXLoader.instance.muzzleFlashPrefab != null)
     {
-        if (source && fireSound)
-            source.PlayOneShot(fireSound);
-
-        if (muzzleFlashPrefab)
-        {
-            //Create the muzzle flash
-            GameObject tempFlash;
-            tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-
-            //Destroy the muzzle flash effect
-            Destroy(tempFlash, destroyTimer);
-        }
-
-        //cancels if there's no bullet prefeb
-        if (!bulletPrefab)
-        { return; }
-
-        // Create a bullet and add force on it in direction of the barrel
-        GameObject bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-        Destroy(bullet, 10f);
+        GameObject flash = Instantiate(
+            VRFXLoader.instance.muzzleFlashPrefab,
+            barrelLocation.position,
+            barrelLocation.rotation
+        );
     }
+
+
+    if (!ProjectilePool.instance)
+    {
+        Debug.LogError("⚠ ProjectilePool is missing in the scene !");
+        return;
+    }
+
+    // Get projectile from pool
+    GameObject bullet = ProjectilePool.instance.GetBullet();
+
+    bullet.transform.position = barrelLocation.position;
+    bullet.transform.rotation = barrelLocation.rotation;
+
+    
+
+    bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+}
+
+
 
     //This function creates a casing at the ejection slot
     void CasingRelease()

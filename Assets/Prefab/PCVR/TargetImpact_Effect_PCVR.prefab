@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4936379453123170359}
   - component: {fileID: 8600120507792647559}
   - component: {fileID: 8870653927590913881}
+  - component: {fileID: -6887973351225708682}
   m_Layer: 0
   m_Name: TargetImpact_Effect_PCVR
   m_TagString: Untagged
@@ -4891,3 +4892,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-6887973351225708682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210284335555847434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cd52613c38d4a55973e6d37bbabbed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 2
