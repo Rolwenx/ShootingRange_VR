@@ -7,11 +7,14 @@ public class TargetDestruction : MonoBehaviour
     [Header("Audio")]
     public AudioSource source;
     public AudioClip targetImpact;
+    public int ScoreToAdd = 10;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Bullet"))
             return;
+
+        GameplayManager.Instance.AddScore(ScoreToAdd);
             
         AudioSource.PlayClipAtPoint(
         TargetAndAudioLoader.instance.impactSFX,
