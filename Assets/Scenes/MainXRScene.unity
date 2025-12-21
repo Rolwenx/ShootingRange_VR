@@ -3408,6 +3408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
+  maxTargets: 4
+  currentTargets: 0
 --- !u!4 &375236126
 Transform:
   m_ObjectHideFlags: 0
@@ -5181,11 +5183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPrefab: {fileID: 0}
   poolSize: 10
-  spawnPoints:
-  - {fileID: 1603867918}
-  - {fileID: 628931973}
-  - {fileID: 1103250034}
-  - {fileID: 965661108}
+  isReady: 0
 --- !u!4 &685752450
 Transform:
   m_ObjectHideFlags: 0
@@ -7853,26 +7851,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179097879}
-  - component: {fileID: 1179097878}
+  - component: {fileID: 1179097880}
   m_Layer: 0
-  m_Name: TargetManager
+  m_Name: TargetSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1179097878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179097877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe201bf4b7144b93b81dcafa4f36b21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1179097879
 Transform:
   m_ObjectHideFlags: 0
@@ -7888,6 +7874,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179097880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179097877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d2c8f4e25e649ffa11f9babbc9a86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 1603867918}
+  - {fileID: 628931973}
+  - {fileID: 1103250034}
+  - {fileID: 965661108}
+  spawnInterval: 1.5
 --- !u!1001 &1188521043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13539,7 +13543,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 375236126}
+  - {fileID: 685752450}
+  - {fileID: 1179097879}
   - {fileID: 2021248514}
+  - {fileID: 117283546}
   - {fileID: 1565678729}
   - {fileID: 819163523}
   - {fileID: 903117570}
@@ -13548,9 +13555,6 @@ SceneRoots:
   - {fileID: 1308504936}
   - {fileID: 1487571988}
   - {fileID: 951570445}
-  - {fileID: 1179097879}
   - {fileID: 960906599}
-  - {fileID: 117283546}
-  - {fileID: 685752450}
   - {fileID: 649464115}
   - {fileID: 1386975111}

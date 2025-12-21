@@ -15,6 +15,7 @@ public class TargetDestruction : MonoBehaviour
             return;
 
         GameplayManager.Instance.AddScore(ScoreToAdd);
+        GameplayManager.Instance.RegisterTargetDespawn();
             
         AudioSource.PlayClipAtPoint(
         TargetAndAudioLoader.instance.impactSFX,
@@ -35,11 +36,6 @@ public class TargetDestruction : MonoBehaviour
         }
 
         Destroy(fx, 2f);
-
-
-
-
-        TargetManager.instance.TargetDestroyed();
 
         transform.root.gameObject.SetActive(false);
     }

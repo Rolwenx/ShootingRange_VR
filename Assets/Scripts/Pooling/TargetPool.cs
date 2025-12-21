@@ -9,9 +9,9 @@ public class TargetPool : MonoBehaviour
     [Header("Pool Settings")]
     public GameObject targetPrefab;
     public int poolSize = 10;
-    public Transform[] spawnPoints;
 
     private List<GameObject> pool = new List<GameObject>();
+    public bool isReady = false;
 
     void Awake()
     {
@@ -27,22 +27,23 @@ public class TargetPool : MonoBehaviour
     {
         // attendre que TargetAndAudioLoader ait chargé la target
         while (!TargetAndAudioLoader.instance.isReady ||
-            TargetAndAudioLoader.instance.targetPrefab == null)
+               TargetAndAudioLoader.instance.targetPrefab == null)
         {
             yield return null; // attendre un frame
         }
 
         // maintenant on peut créer le pool
+        targetPrefab = TargetAndAudioLoader.instance.targetPrefab;
+
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject temp = Instantiate(TargetAndAudioLoader.instance.targetPrefab);
+            GameObject temp = Instantiate(targetPrefab);
             temp.SetActive(false);
             pool.Add(temp);
         }
 
-        SpawnAllTargets();
+        isReady = true;
     }
-
 
     // on retourne une cible inactive du pool, et s'il y en a pas, on en crée une nouvelle
     public GameObject GetTarget()
@@ -61,16 +62,7 @@ public class TargetPool : MonoBehaviour
         pool.Add(newTarget);
         return newTarget;
     }
-    // on fait apparaitre une cible sur les points de spawn
-    public void SpawnAllTargets()
-    {
-        foreach (Transform point in spawnPoints)
-        {
-            GameObject t = GetTarget();
-            ResetTarget(t, point.position, point.rotation);
-        }
-    }
-
+    
     // on réinitialise l’état d’une cible avant réactivation
     public void ResetTarget(GameObject target, Vector3 position, Quaternion rotation)
     {

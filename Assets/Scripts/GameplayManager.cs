@@ -6,6 +6,10 @@ public class GameplayManager : MonoBehaviour
 
     public static GameplayManager Instance; 
 
+    [Header("Targets")]
+    public int maxTargets = 4;
+    public int currentTargets = 0;
+
     
     void Awake()
     {
@@ -23,4 +27,15 @@ public class GameplayManager : MonoBehaviour
     {
         return currentScore;
     } 
+    public void RegisterTargetSpawn()
+    {
+        currentTargets++;
+    }
+
+    public void RegisterTargetDespawn()
+    {
+        currentTargets--;
+        if (currentTargets < 0)
+            currentTargets = 0;
+    }
 }
