@@ -927,7 +927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011444727360, guid: b69a894e9ba3d9c40ac239743745cae4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -209.7
+      value: -209.11
       objectReference: {fileID: 0}
     - target: {fileID: 4000011444727360, guid: b69a894e9ba3d9c40ac239743745cae4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2853,7 +2853,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
+  - {fileID: 2100000, guid: 713dad9a4d9934ed88d85ef69aed45eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2892,7 +2892,7 @@ Transform:
   m_GameObject: {fileID: 789228595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.85, y: 2.106566, z: -199.58}
+  m_LocalPosition: {x: 39.39, y: 2.106566, z: -202.57}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2910,6 +2910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862674ae3a0ec481aadca474f0e1cdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 789228597}
+  drone: {fileID: 789228596}
 --- !u!1 &795134544
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,34 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class DroneVisualState : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Renderer rend;
+    MaterialPropertyBlock mpb;
+    public DroneFollower drone;
+    private float risk;
+
+    private static readonly int RiskID = Shader.PropertyToID("_Risk");
+
+
+    void Awake()
     {
-        
+        mpb = new MaterialPropertyBlock();
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if(drone.currentMode == false)
+        {
+            risk = 1;
+        }
+        else
+        {
+            risk = 0;
+        }
+        rend.GetPropertyBlock(mpb);
+        mpb.SetFloat(RiskID, risk);
+
+        rend.SetPropertyBlock(mpb);
     }
 }

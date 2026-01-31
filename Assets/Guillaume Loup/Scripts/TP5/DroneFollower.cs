@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public enum DroneMode { Normal, Cautious }
-
 public class DroneFollower : MonoBehaviour
 {
-    public DroneMode currentMode;
+    // true = normal mode | false = cautious mode
+    public bool currentMode = false;
+
     [Header("Target")]
     public Transform followAnchor;
 
@@ -32,7 +32,7 @@ public class DroneFollower : MonoBehaviour
 
         if (!followAnchor) return;
 
-        Vector3 toAnchor = (followAnchor.position - transform.position);
+        Vector3 toAnchor = followAnchor.position - transform.position;
         Vector3 baseDir = toAnchor.normalized;
 
         List<Vector3> validDirs = new List<Vector3>();
@@ -51,11 +51,13 @@ public class DroneFollower : MonoBehaviour
 
         if (validDirs.Count == 0)
         {
-            currentMode = DroneMode.Cautious;
+            currentMode = false;
             currentVelocity = Vector3.zero;
             return;
         }
-        currentMode = validDirs.Count < 6 ? DroneMode.Cautious : DroneMode.Normal;
+        currentMode = validDirs.Count < directionsCount * 0.8f
+    ? false
+    : true;
 
         Vector3 bestDir = ChooseBestDirection(validDirs, baseDir);
         lastDirection = Vector3.Lerp(lastDirection, bestDir, Time.deltaTime * smoothing);
