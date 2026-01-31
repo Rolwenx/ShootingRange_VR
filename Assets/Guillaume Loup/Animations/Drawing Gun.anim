@@ -56182,7 +56182,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.6
-    functionName: AttachWeapon
+    functionName: OnEquipAnimationEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

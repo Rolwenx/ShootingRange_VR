@@ -3,18 +3,14 @@ using UnityEngine;
 public class WeaponEquipHandler : MonoBehaviour
 {
     [Header("References")]
-    public Transform weaponSocket; 
-    
-    public GameObject weaponVisual; 
-    
-    public void AttachWeapon()
+    [Tooltip("Visual or model of the weapon (already grabbed by XR)")]
+    public GameObject weaponVisual;
+
+    public void OnEquipAnimationEvent()
     {
-        if (!weaponSocket || !weaponVisual) return;
+        if (!weaponVisual) return;
 
-        weaponVisual.transform.SetParent(weaponSocket);
-        weaponVisual.transform.localPosition = Vector3.zero;
-        weaponVisual.transform.localRotation = Quaternion.identity;
-
+        // Just reveal / activate
         weaponVisual.SetActive(true);
     }
 }

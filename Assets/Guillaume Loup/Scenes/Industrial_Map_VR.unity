@@ -1700,8 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66e13867df7a40caaabd32c3e6d2bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedWeaponPrefab: {fileID: 4675340847015332537}
-  weaponSocket: {fileID: 841812294}
   bossAnimator: {fileID: 1886329735}
 --- !u!1001 &594654467
 PrefabInstance:
@@ -1757,6 +1755,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000011609285218, guid: c2028b62d7877e04194d5001429cff6b, type: 3}
   m_PrefabInstance: {fileID: 594654467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &628482958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628482959}
+  m_Layer: 0
+  m_Name: LeftWeaponSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &628482959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628482958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.08138384, y: 0.56633216, z: 0.81959206, w: -0.030221477}
+  m_LocalPosition: {x: -0.078, y: 0.126, z: 0.057}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1574526883}
+  m_LocalEulerAnglesHint: {x: -111.054, y: 196.025, z: -6.8170166}
 --- !u!1 &651546772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 921090566749770278, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
@@ -2785,7 +2814,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 3
   m_Handedness: 0
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 841812294}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -3204,7 +3233,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 6
   m_Handedness: 0
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 628482959}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -3560,7 +3589,7 @@ GameObject:
   m_Component:
   - component: {fileID: 841812294}
   m_Layer: 0
-  m_Name: WeaponSocket
+  m_Name: RightWeaponSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3574,13 +3603,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841812293}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6215817, y: 0.30281636, z: 0.68675846, w: 0.2242798}
-  m_LocalPosition: {x: 0.01, y: 0.07, z: 0.05}
+  m_LocalRotation: {x: -0.6639176, y: -0.009899902, z: -0.015969547, w: 0.7475697}
+  m_LocalPosition: {x: -0.004, y: 0.12, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1675585971}
-  m_LocalEulerAnglesHint: {x: -44.006, y: -86.503, z: 185.457}
+  m_LocalEulerAnglesHint: {x: -96.8, y: -176.9, z: 174.8}
 --- !u!1001 &847981679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6806,69 +6835,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880386554}
+    - targetCorrespondingSourceObject: {fileID: 6502182839619065283, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 628482959}
     - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 841812294}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1886329733}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1886329732}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1886329730}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1886329734}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1886329736}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1886329737}
   m_SourcePrefab: {fileID: 100100000, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
 --- !u!4 &1886329729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d05f05b3630a54a0b9e9123dab62aee5, type: 3}
   m_PrefabInstance: {fileID: 1886329728}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1886329730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530380594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca0371929dfa946e5ab8c35136944a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSocket: {fileID: 841812294}
-  weaponVisual: {fileID: 4675340847015332537}
---- !u!114 &1886329732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530380594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c401248cb5144a019c4b833bd277808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1886329733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530380594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a72b78302f1254764ad3e856655f94f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1886329734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6920,6 +6908,19 @@ MonoBehaviour:
     trackingRotationOffset: {x: 0, y: 0, z: 0}
   headBodyPositionOffset: {x: 0.34, y: -1.29, z: -0.27}
   headBodyYawOffset: 0
+--- !u!114 &1886329737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530380594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0371929dfa946e5ab8c35136944a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponVisual: {fileID: 564670804}
 --- !u!1001 &1895612815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7699,6 +7700,10 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_Name
       value: XR Device Simulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
