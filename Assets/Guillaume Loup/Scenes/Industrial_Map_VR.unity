@@ -2799,6 +2799,8 @@ GameObject:
   - component: {fileID: 789228597}
   - component: {fileID: 789228596}
   - component: {fileID: 789228600}
+  - component: {fileID: 789228602}
+  - component: {fileID: 789228601}
   m_Layer: 0
   m_Name: DroneFollower
   m_TagString: Untagged
@@ -2830,6 +2832,15 @@ MonoBehaviour:
     m_Bits: 1024
   maxSpeed: 3
   smoothing: 8
+  wFollow: 1
+  wDynamic: 0.5
+  wSafety: 2
+  hysteresisFactor: 0.9
+  directionSmoothing: 6
+  cautiousSpeedFactor: 0.3
+  hoverDuration: 0.5
+  desiredDistance: 2
+  followStrength: 2.5
 --- !u!23 &789228597
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2912,6 +2923,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 789228597}
   drone: {fileID: 789228596}
+--- !u!95 &789228601
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789228595}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 797c09dc4ddc644c497dc03f70cde755, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &789228602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789228595}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a1539b1c99e4f149409b81d258f994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follower: {fileID: 789228596}
 --- !u!1 &795134544
 GameObject:
   m_ObjectHideFlags: 0
@@ -6424,7 +6470,7 @@ Transform:
   m_GameObject: {fileID: 1623429066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 1.2, z: -2.5}
+  m_LocalPosition: {x: -0.98, y: 1.2, z: -1.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

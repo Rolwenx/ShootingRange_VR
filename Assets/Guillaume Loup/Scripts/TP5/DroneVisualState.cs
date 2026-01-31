@@ -7,7 +7,6 @@ public class DroneVisualState : MonoBehaviour
     MaterialPropertyBlock mpb;
     public DroneFollower drone;
     private float risk;
-
     private static readonly int RiskID = Shader.PropertyToID("_Risk");
 
 
@@ -31,4 +30,6 @@ public class DroneVisualState : MonoBehaviour
 
         rend.SetPropertyBlock(mpb);
     }
+
+    
 }
